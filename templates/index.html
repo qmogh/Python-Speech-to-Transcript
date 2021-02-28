@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/index.css')}}" />
+    
+    <title> Speech Recognition in Python</title>
+</head>
+
+<body class="center">
+    <div id="speechContainer">
+        <h1 class="center">Speech Transcription in Python!</h1>
+        <h2 class="center">Upload new .wav file</h2>
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file"/>
+            <br>
+            <input id="submitButton" type="submit" value="Transcribe" />
+        </form>
+
+        {% if transcript != ""%}
+        <div id="speechTranscriptContainer">
+            <h1>Transcript</h1>
+            <p class="center" id="speechText">{{transcript}}</p>
+        </div> 
+        {% endif %}
+    </div>
+</body>
+</html>
